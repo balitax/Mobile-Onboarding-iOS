@@ -10,12 +10,10 @@ import SwiftUI
 struct Welcome: View {
     
     @State var viewModel = WelcomeViewModel()
+    @State var presentingModal = false
     
     var body: some View {
         VStack {
-            
-            Spacer()
-            
             // Pager View
             TabView(selection: $viewModel.currentStep) {
                 ForEach(0..<viewModel.data.count, id: \.self) { index in
@@ -66,69 +64,19 @@ struct Welcome: View {
                 withAnimation {
                     if viewModel.currentStep < viewModel.data.count - 1 {
                         viewModel.currentStep += 1
+                    } else {
+                        presentingModal.toggle()
                     }
                 }
             })
+            .fullScreenCover(isPresented: $presentingModal) {
+                WelcomeApp()
+            }
             
         }
         .padding(.vertical)
         .padding(.horizontal)
     }
-    
-    @ViewBuilder
-    func createPage() -> some View {
-        ZStack {
-            VStack {
-                Spacer()
-                Spacer()
-                
-                VStack {
-                    
-                    // Content Pager
-                    createViewPager()
-                    
-                    
-                    
-                    
-                }
-                
-            }
-            .padding(.vertical)
-            .padding(.horizontal)
-        }
-    }
-    
-    @ViewBuilder
-    func createViewPager() -> some View {
-        TabView(selection: $viewModel.currentStep.animation()) {
-            ForEach(0..<viewModel.data.count, id: \.self) { index in
-                VStack(spacing: 8) {
-                    
-                    Image(viewModel.data[index].image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: .infinity, height: 210)
-                    
-                    Text(viewModel.data[index].title)
-                        .foregroundStyle(Color.primary)
-                        .font(.system(size: 24, weight: .bold))
-                        .frame(width: .infinity, alignment: .center)
-                        .lineLimit(2)
-                    
-                    Text(viewModel.data[index].subTitle)
-                        .foregroundStyle(Color.secondary)
-                        .font(.system(size: 15, weight: .regular))
-                        .frame(width: 300, alignment: .center)
-                        .lineLimit(3)
-                        .multilineTextAlignment(.center)
-                }
-                .tag(index)
-            }
-        }
-        .tabViewStyle(.page(indexDisplayMode: .never))
-        .frame(height: UIScreen.main.bounds.height * 0.4)
-    }
-    
 }
 
 #Preview {
