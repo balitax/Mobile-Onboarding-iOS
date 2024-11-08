@@ -13,14 +13,16 @@ final class WelcomeViewModel {
     var currentStep = 0
     
     struct WelcomeModel: Hashable {
+        let image: String
         let title: String
         let subTitle: String
     }
     
     let data: [WelcomeModel] = [
-        WelcomeModel(title: "Welcome to App", subTitle: "Here’s a good place for a brief overview of the app or it’s key features."),
-        WelcomeModel(title: "Welcome to App 2", subTitle: "Here’s a good place for a brief overview of the app or it’s key features."),
-        WelcomeModel(title: "Welcome to App 3", subTitle: "Here’s a good place for a brief overview of the app or it’s key features.")
+        WelcomeModel(image: "onboard1", title: "Halo, Perkenalkan Skuy!", subTitle: "Anda dapat membeli dan menjual internet Anda untuk terhubung dengan mudah dan aman."),
+        WelcomeModel(image: "onboard2", title: "Butuhkan Internet?", subTitle: "Gunakan poin Skuy untuk menjelajahi internet."),
+        WelcomeModel(image: "onboard3", title: "Mau Jual Internet?", subTitle: "Setiap penjualan, Anda akan mendapatkan poin, yang dapat ditukarkan dengan lebih banyak internet."),
+        WelcomeModel(image: "onboard4", title: "Bagaimana?", subTitle: "Skuy menemukan pembeli dan penjual di dekat Anda dan mengirimkan notifikasi kepada Anda.")
     ]
 
 }
