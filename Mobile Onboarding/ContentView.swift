@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var viewModel = ContentViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                Section("Welcome Onboarding") {
+                    welcomeOnboarding()
+                }
+            }
+            .navigationTitle("Mobile Onboarding")
         }
-        .padding()
+    }
+    
+    @ViewBuilder
+    func welcomeOnboarding() -> some View {
+        ForEach(0..<viewModel.welcomes.count, id:\.self) { index in
+            Button(viewModel.welcomes[index].title){
+                viewModel.welcomes[index].isPresent.toggle()
+            }.fullScreenCover(isPresented: $viewModel.welcomes[index].isPresent) {
+                viewModel.welcomes[index].presentView()
+            }
+        }
     }
 }
 

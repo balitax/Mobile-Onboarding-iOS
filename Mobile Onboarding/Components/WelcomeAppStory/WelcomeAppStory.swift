@@ -10,6 +10,7 @@ import SwiftUI
 struct WelcomeAppStory: View {
     
     @State var viewModel = WelcomeAppStoryViewModel()
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         ZStack {
@@ -30,8 +31,8 @@ struct WelcomeAppStory: View {
         .overlay(alignment: .bottom) {
             VStack {
                 HStack {
-                    ACButtonView(title: "Log In", style: .secondary, action: { })
-                    ACButtonView(title: "Sign Up", style: .primary, action: { })
+                    ACButtonView(title: "Log In", style: .secondary, action: { dismiss() })
+                    ACButtonView(title: "Sign Up", style: .primary, action: { dismiss() })
                 }
             }
             .padding()

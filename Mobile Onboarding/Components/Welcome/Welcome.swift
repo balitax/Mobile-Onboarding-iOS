@@ -10,7 +10,7 @@ import SwiftUI
 struct Welcome: View {
     
     @State var viewModel = WelcomeViewModel()
-    @State var presentingModal = false
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
@@ -65,14 +65,10 @@ struct Welcome: View {
                     if viewModel.currentStep < viewModel.data.count - 1 {
                         viewModel.currentStep += 1
                     } else {
-                        presentingModal.toggle()
+                        dismiss()
                     }
                 }
             })
-            .fullScreenCover(isPresented: $presentingModal) {
-                WelcomeApp()
-            }
-            
         }
         .padding(.vertical)
         .padding(.horizontal)
