@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State var viewModel = ContentViewModel()
+    @State var isDark = false
     
     var body: some View {
         NavigationStack {
@@ -19,6 +20,16 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Mobile Onboarding")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Picker("Color Appearance Mode", selection: $isDark) {
+                        Text("Light").tag(false)
+                        Text("Dark").tag(true)
+                    }
+                    .pickerStyle(.segmented)
+                    
+                }
+            }
         }
     }
     
