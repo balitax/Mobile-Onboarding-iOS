@@ -27,4 +27,9 @@ class ContentViewModel {
         Page(title: "Welcome App Story",page: WelcomeAppStory(), isPresent: false)
     ]
     
+    var loginOrRegister: [Page] = [
+        Page(title: "Login / Register Using BottomSheet", page: LoginOrRegisterBottomSheetView(), isPresent: false),
+        Page(title: "Login / Register using Social", page: SocialLoginRegisterView(), isPresent: false),
+    ]
+    
 }

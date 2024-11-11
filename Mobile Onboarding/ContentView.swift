@@ -18,6 +18,9 @@ struct ContentView: View {
                 Section("Welcome Onboarding") {
                     welcomeOnboarding()
                 }
+                Section("Login or Register") {
+                    loginRegisterOnboarding()
+                }
             }
             .navigationTitle("Mobile Onboarding")
             .toolbar {
@@ -36,13 +39,33 @@ struct ContentView: View {
     @ViewBuilder
     func welcomeOnboarding() -> some View {
         ForEach(0..<viewModel.welcomes.count, id:\.self) { index in
-            Button(viewModel.welcomes[index].title){
+            Button(action: {
                 viewModel.welcomes[index].isPresent.toggle()
+            }) {
+                Text(viewModel.welcomes[index].title)
+                    .tint(.primary)
+                    .font(.system(size: 14, weight: .regular))
             }.fullScreenCover(isPresented: $viewModel.welcomes[index].isPresent) {
                 viewModel.welcomes[index].presentView()
             }
         }
     }
+
+    @ViewBuilder
+    func loginRegisterOnboarding() -> some View {
+        ForEach(0..<viewModel.loginOrRegister.count, id:\.self) { index in
+            Button(action: {
+                viewModel.loginOrRegister[index].isPresent.toggle()
+            }) {
+                Text(viewModel.loginOrRegister[index].title)
+                    .tint(.primary)
+                    .font(.system(size: 14, weight: .regular))
+            }.fullScreenCover(isPresented: $viewModel.loginOrRegister[index].isPresent) {
+                viewModel.loginOrRegister[index].presentView()
+            }
+        }
+    }
+    
 }
 
 #Preview {

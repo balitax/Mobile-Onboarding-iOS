@@ -46,7 +46,7 @@ struct WelcomeApp: View {
                 
                 Spacer()
                 
-                ACButtonView(title: "Get started", action: {
+                FillButton(title: "Get started", action: {
                     dismiss()
                 })
             }

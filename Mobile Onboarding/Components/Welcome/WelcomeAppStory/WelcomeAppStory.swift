@@ -31,8 +31,8 @@ struct WelcomeAppStory: View {
         .overlay(alignment: .bottom) {
             VStack {
                 HStack {
-                    ACButtonView(title: "Log In", style: .secondary, action: { dismiss() })
-                    ACButtonView(title: "Sign Up", style: .primary, action: { dismiss() })
+                    FillButton(title: "Log In", style: .secondary, action: { dismiss() })
+                    FillButton(title: "Sign Up", style: .primary, action: { dismiss() })
                 }
             }
             .padding()
