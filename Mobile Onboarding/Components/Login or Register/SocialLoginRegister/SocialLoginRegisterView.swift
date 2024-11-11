@@ -24,9 +24,9 @@ struct SocialLoginRegisterView: View {
                 .padding(.top, 24)
             
             VStack(spacing: 16) {
-                FillButton(title: "Continue with Apple", icon: "appleIcon", style: .secondary) { dismiss() }
-                FillButton(title: "Continue with Google", icon: "googleIcon", style: .secondary) { dismiss() }
-                FillButton(title: "Continue with Facebook", icon: "fbIcon", style: .secondary) { dismiss() }
+                ButtonView(title: "Continue with Apple", icon: "appleIcon", style: .secondary) { dismiss() }
+                ButtonView(title: "Continue with Google", icon: "googleIcon", style: .secondary) { dismiss() }
+                ButtonView(title: "Continue with Facebook", icon: "fbIcon", style: .secondary) { dismiss() }
             }
             .padding()
             
@@ -50,7 +50,7 @@ struct SocialLoginRegisterView: View {
             
             VStack(spacing: 16) {
                 TextFieldView(text: .constant(""), placeholder: "Email address")
-                FillButton(title: "Continue with Email") { dismiss() }
+                ButtonView(title: "Continue with Email") { dismiss() }
             }
             .padding()
         }

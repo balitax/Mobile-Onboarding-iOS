@@ -60,7 +60,7 @@ struct Welcome: View {
             .frame(width: 60)
             
             // Button
-            FillButton(title: viewModel.currentStep == viewModel.data.count - 1 ? "Mulai" : "Lanjut", action: {
+            ButtonView(title: viewModel.currentStep == viewModel.data.count - 1 ? "Mulai" : "Lanjut", action: {
                 withAnimation {
                     if viewModel.currentStep < viewModel.data.count - 1 {
                         viewModel.currentStep += 1

@@ -38,7 +38,7 @@ struct LoginOrRegisterBottomSheetView: View {
             
             Spacer()
             
-            FillButton(title: "Sign In") {
+            ButtonView(title: "Sign In") {
                 isPresentLoginOrRegisterBottomSheet.toggle()
             }
         }
@@ -71,12 +71,12 @@ struct LoginOrRegisterBottomSheetView: View {
             .padding(.top)
             
             VStack(spacing: 12) {
-                FillButton(title: "Continue with Email", style: .primary, action: { })
-                FillButton(title: "Continue with Phone", style: .secondary, action: { })
+                ButtonView(title: "Continue with Email", style: .primary, action: { })
+                ButtonView(title: "Continue with Phone", style: .secondary, action: { })
                 
                 HStack {
-                    FillButton(icon: "googleIcon", style: .secondary, action: { })
-                    FillButton(icon: "appleIcon", style: .secondary, action: { })
+                    ButtonView(icon: "googleIcon", style: .secondary, action: { })
+                    ButtonView(icon: "appleIcon", style: .secondary, action: { })
                 }
             }
             .padding(.top, 32)

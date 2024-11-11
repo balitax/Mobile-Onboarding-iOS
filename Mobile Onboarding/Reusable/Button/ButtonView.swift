@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FillButton: View{
+struct ButtonView: View{
     
     public var title: String?
     public var icon: String?
@@ -57,5 +57,5 @@ struct FillButton: View{
 }
 
 #Preview {
-    FillButton(title: "Get Started", style: .secondary) { }
+    ButtonView(title: "Get Started", style: .secondary) { }
 }

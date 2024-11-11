@@ -46,7 +46,7 @@ struct WelcomeApp: View {
                 
                 Spacer()
                 
-                FillButton(title: "Get started", action: {
+                ButtonView(title: "Get started", action: {
                     dismiss()
                 })
             }
