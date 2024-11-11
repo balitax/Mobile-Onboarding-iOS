@@ -33,4 +33,9 @@ class ContentViewModel {
         Page(title: "Login Form", page: LoginFormView(), isPresent: false),
     ]
     
+    var emails: [Page] = [
+        Page(title: "Email Subscription", page: EmailSubscriptionView(), isPresent: false),
+        Page(title: "Input Email", page: InputEmailView(), isPresent: false),
+    ]
+    
 }

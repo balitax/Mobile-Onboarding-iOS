@@ -21,6 +21,9 @@ struct ContentView: View {
                 Section("Login or Register") {
                     loginRegisterOnboarding()
                 }
+                Section("Email Form") {
+                    emailOnboarding()
+                }
             }
             .navigationTitle("Mobile Onboarding")
             .toolbar {
@@ -42,9 +45,17 @@ struct ContentView: View {
             Button(action: {
                 viewModel.welcomes[index].isPresent.toggle()
             }) {
-                Text(viewModel.welcomes[index].title)
-                    .tint(.primary)
-                    .font(.system(size: 14, weight: .regular))
+                HStack {
+                    Text(viewModel.welcomes[index].title)
+                        .tint(.primary)
+                        .font(.system(size: 14, weight: .regular))
+                    
+                    Spacer()
+                    
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: 14))
+                        .tint(.secondary)
+                }
             }.fullScreenCover(isPresented: $viewModel.welcomes[index].isPresent) {
                 viewModel.welcomes[index].presentView()
             }
@@ -57,11 +68,33 @@ struct ContentView: View {
             Button(action: {
                 viewModel.loginOrRegister[index].isPresent.toggle()
             }) {
-                Text(viewModel.loginOrRegister[index].title)
-                    .tint(.primary)
-                    .font(.system(size: 14, weight: .regular))
+                
+                HStack {
+                    Text(viewModel.loginOrRegister[index].title)
+                        .tint(.primary)
+                        .font(.system(size: 14, weight: .regular))
+                    
+                    Spacer()
+                    
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: 14))
+                        .tint(.secondary)
+                }
             }.fullScreenCover(isPresented: $viewModel.loginOrRegister[index].isPresent) {
                 viewModel.loginOrRegister[index].presentView()
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func emailOnboarding() -> some View {
+        ForEach(0..<viewModel.emails.count, id:\.self) { index in
+            NavigationLink {
+                viewModel.emails[index].presentView()
+            } label: {
+                Text(viewModel.emails[index].title)
+                    .tint(.primary)
+                    .font(.system(size: 14, weight: .regular))
             }
         }
     }
