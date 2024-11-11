@@ -57,7 +57,35 @@ struct LoginOrRegisterBottomSheetView: View {
     @ViewBuilder
     func bottomSheetLoginRegister() -> some View {
         VStack {
+            VStack(spacing: 8) {
+                Text("Login or sign up")
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundStyle(.primary)
+                
+                Text("Please select your preferred method\nto continue setting up your account")
+                    .font(.system(size: 16, weight: .regular))
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+            }
+            .padding(.horizontal)
+            .padding(.top)
             
+            VStack(spacing: 12) {
+                FillButton(title: "Continue with Email", style: .primary, action: { })
+                FillButton(title: "Continue with Phone", style: .secondary, action: { })
+                
+                HStack {
+                    FillButton(icon: "googleIcon", style: .secondary, action: { })
+                    FillButton(icon: "appleIcon", style: .secondary, action: { })
+                }
+            }
+            .padding(.top, 32)
+            .padding(.horizontal)
+            .padding(.bottom, 34)
+            
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        .overlay(alignment: .top) {
             HStack {
                 Spacer()
                 Button(action: {
@@ -77,35 +105,7 @@ struct LoginOrRegisterBottomSheetView: View {
                 }
             }
             .padding()
-            .padding(.bottom, 8)
-            
-            VStack(spacing: 8) {
-                Text("Login or sign up")
-                    .font(.system(size: 20, weight: .bold))
-                    .foregroundStyle(.primary)
-                
-                Text("Please select your preferred method\nto continue setting up your account")
-                    .font(.system(size: 16, weight: .regular))
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
-            }
-            .padding(.horizontal)
-            
-            VStack(spacing: 12) {
-                FillButton(title: "Continue with Email", style: .primary, action: { })
-                FillButton(title: "Continue with Phone", style: .secondary, action: { })
-                
-                HStack {
-                    FillButton(icon: "googleIcon", style: .secondary, action: { })
-                    FillButton(icon: "appleIcon", style: .secondary, action: { })
-                }
-            }
-            .padding(.top, 32)
-            .padding(.horizontal)
-            .padding(.bottom, 34)
-            
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .overlay(alignment: .bottom) {
             VStack {
                 Group(content: {
