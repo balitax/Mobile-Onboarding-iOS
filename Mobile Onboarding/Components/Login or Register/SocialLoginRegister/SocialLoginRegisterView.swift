@@ -74,6 +74,6 @@ struct SocialLoginRegisterView: View {
     }
 }
 
-#Preview {
-    SocialLoginRegisterView()
-}
+//#Preview {
+//    SocialLoginRegisterView()
+//}

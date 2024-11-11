@@ -17,6 +17,7 @@ struct ButtonView: View{
     enum Style {
         case primary
         case secondary
+        case tertiary
     }
     
     var body: some View {
@@ -31,13 +32,13 @@ struct ButtonView: View{
                             .frame(width: 20, height: 20)
                         
                         Text(title)
-                            .foregroundColor(style == .primary ? .white : .black)
+                            .foregroundColor(foregroundColor)
                             .font(.system(size: 16, weight: .semibold))
                     }
                 }
                 else if let title {
                     Text(title)
-                        .foregroundColor(style == .primary ? .white : .black)
+                        .foregroundColor(foregroundColor)
                         .font(.system(size: 16, weight: .semibold))
                 } else if let icon {
                     Image(icon)
@@ -50,12 +51,23 @@ struct ButtonView: View{
             .cornerRadius(14)
             .overlay {
                 RoundedRectangle(cornerRadius: 14)
-                    .stroke(style == .primary ? .clear : Color.gray.opacity(0.4))
+                    .stroke(style == .primary || style == .tertiary ? .clear : Color.gray.opacity(0.4))
             }
+        }
+    }
+    
+    var foregroundColor: Color {
+        switch style {
+        case .primary:
+               return .white
+        case .secondary:
+            return .black
+        case .tertiary:
+            return .blue
         }
     }
 }
 
 #Preview {
-    ButtonView(title: "Get Started", style: .secondary) { }
+    ButtonView(title: "Get Started", style: .tertiary) { }
 }
