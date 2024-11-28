@@ -10,10 +10,7 @@ SwiftUI Mobile Onboarding Component is my own personal project to create somethi
 ## **Demo Mobile Onboarding Component**
 | Onboarding Component |
 | -------------------- |
-| <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/1490342/390813623-893bb2ef-0bd7-40f8-9d12-9cbb1d91aadc.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241128%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241128T141127Z&X-Amz-Expires=300&X-Amz-Signature=90b701d86cfceb38ce4050dd62e2b42d16a7646d20ed73f72dc78e9f3153d808&X-Amz-SignedHeaders=host" />   |
-
-
-
+| <video src="https://github.com/user-attachments/assets/ae434c43-f88e-4f3c-98d3-85810d05ebc6" width="300" /> |
 
 
 
